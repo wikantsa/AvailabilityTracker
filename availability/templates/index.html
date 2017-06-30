@@ -5,19 +5,29 @@
 {% endblock %}
 
 {% block body %}
+{% load schedule_tags %}
 <link rel="stylesheet" type="text/css" href="/static/index.css">
 
-<span style="font-size:40px;">{{ test }} {{test2}}</span>
 <div class="calendar-container">
+	<div class="calendar-day-label-times">
+	</div>
     {% for day in week_data %}
     <div class="calendar-day-label">
         {{ day.0 }} {{ day.1 }} {{ day.2 }}
     </div>
     {% endfor %}
+	<div class="calendar-day-times">
+		{% for hour in 'xxxxxxxxxxxxxxxxxxxxxxxx' %}
+		<div class="calendar-time-period-hour">	
+			<div class="calendar-time-line"></div>
+			{% timelabel forloop.counter0 %}:00
+		</div>
+		{% endfor %}
+	</div>
     {% for period in periods %}
     <div class="calendar-day">
         {% for availability, ratio, height in period %}
-        <div class="calendar-availability" style="top:{{ ratio }}%; height:{{ height }}%;">
+        <div class="calendar-availability" style="top:calc({{ ratio }}% + 1px); height:calc({{ height }}% - 1px);">
             {{ availability.start|time:'g:i A' }} - {{ availability.end|time:'g:i A' }}<br>
             {{ availability.activity }}<br>
             {{ availability.person.user.username }}<br>

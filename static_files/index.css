@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Ubuntu');/*font-family: 'Ubuntu', sans-serif;*/
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');/*font-family: 'Open Sans', sans-serif;*/
+@import url('https://fonts.googleapis.com/css?family=PT+Sans');/*font-family: 'PT Sans', sans-serif;*/
 body
 {
     position:absolute;
@@ -15,44 +16,40 @@ body
 }
 .calendar-day-label
 {
-    width:calc(100%/7 - 28px);
-    height:calc(10% - 20px);
-    margin:1px;
+    width:calc(100%/8 - 24px - 1px);
+    height:calc(10% - 20px - 2px);
     padding:8px 12px 8px 12px;
     display:inline-block;
-    border-radius:2px;
     background:#A8B3CD;
-    border: 1px solid #6d80ab;
-    font-size:20px;
+    border-left: 1px solid #6d80ab;
+	border-top: 1px solid #6d80ab;
+	border-bottom: 1px solid #6d80ab;
+    font-size:12px;
     vertical-align:top;
     text-align:left;
-    font-family: 'Ubuntu', sans-serif;
-    font-size:16px;
+    font-family: 'Open Sans', sans-serif;
+	font-weight:900;
     color:#595959;
 }
 .calendar-day
 {
     position:relative;
-    width:calc(100%/7 - 4px);
+    width:calc(100%/8 - 1px);
     height:calc(90% - 4px);
-    margin:1px;
-    background:white;
     display:inline-block;
-    border-radius:2px;
-    background:#e4e5e7;
-    border:1px solid #93979f;
+    border-left:1px solid #93979f;
     vertical-align:top;
     font-size:16px;
 }
 .calendar-availability
 {
     position:absolute;
-    width:calc(100% - 4px);
-    min-height:40px;
+    width:100%;
     height:auto;
-    border:1px solid #93979f;
-    margin:1px;
-    font-size:8px;
+    font-size:12px;
+	background:#e6e6e6;
+	font-family: 'PT Sans', sans-serif;
+	z-index:10;
 }
 .calendar-hour
 {
@@ -60,4 +57,39 @@ body
     width:calc(100% - 4px);
     margin:1px;
     border:1px solid black;
+}
+.calendar-day-label-times
+{
+	width:calc(100%/8 - 28px);
+    height:calc(10% - 20px);
+    margin:2px;
+    padding:8px 12px 8px 12px;
+    display:inline-block;
+    vertical-align:top;
+}
+.calendar-day-times
+{
+	position:relative;
+    width:calc(100%/8);
+    height:calc(90% - 4px);
+    display:inline-block;
+    border-radius:2px;
+    vertical-align:top;
+    font-size:16px;
+}
+.calendar-time-period-hour
+{
+	height:calc(100%/24);
+	width:calc(100% - 4px);
+	font-size:8px;
+	font-family: 'PT Sans', sans-serif;
+}
+.calendar-time-line
+{
+	position:relative;
+	width:calc(800% + 32px);
+	height:0;
+	border-top:1px solid #999999;
+	z-index:10;
+	margin:0;
 }
