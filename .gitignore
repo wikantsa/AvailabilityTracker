@@ -1,0 +1,5 @@
+AvailabilityTracker/settings.py
+availability/migrations/
+db.sqlite
+*.pyc
+*.pyo
