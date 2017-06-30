@@ -10,7 +10,7 @@ body
 .calendar-container
 {
     width:calc(100% - 10px);
-    height:100%;
+    height:90%;
     font-size:0;
     margin:5px;
 }
@@ -38,6 +38,7 @@ body
     height:calc(90% - 4px);
     display:inline-block;
     border-left:1px solid #93979f;
+	border-bottom:1px solid #93979f;
     vertical-align:top;
     font-size:16px;
 }
@@ -73,9 +74,9 @@ body
     width:calc(100%/8);
     height:calc(90% - 4px);
     display:inline-block;
-    border-radius:2px;
     vertical-align:top;
     font-size:16px;
+	border-bottom:1px solid #93979f;
 }
 .calendar-time-period-hour
 {
@@ -92,4 +93,35 @@ body
 	border-top:1px solid #999999;
 	z-index:10;
 	margin:0;
+}
+.calendar-date-nav
+{
+	background:#282832;
+	width:calc(100% - 10px);
+	height:calc(10% - 6px);
+	margin:3px 5px 3px 5px;
+	border-radius:2px;
+}
+.calendar-date-nav a
+{
+	position:relative;
+	top:calc(50% - 12px);
+	color:white;
+	font-size:16px;
+	font-family: 'PT Sans', sans-serif;
+	text-decoration:none;
+}
+.calendar-date-nav a:hover
+{
+	text-decoration:underline;
+}
+.calendar-date-nav a:first-of-type
+{
+	margin-left:30px;
+	float:left;
+}
+.calendar-date-nav a:last-of-type
+{
+	margin-right:30px;
+	float:right;
 }
