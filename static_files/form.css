@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css?family=PT+Sans');/*font-family: 'PT Sans', sans-serif;*/
+form
+{
+	margin:20px;
+	padding-top:20px;
+}
+form label
+{
+	font-size:14px;
+	font-family: 'PT Sans', sans-serif;
+}
+form input[type="text"]
+{
+	margin:10px 20px 10px 20px;
+}
+form input[type="password"]
+{
+	margin:10px 20px 10px 20px;
+}
+form input[type="email"]
+{
+	margin:10px 20px 10px 20px;
+}
+form a
+{
+	margin:0 0 0 10px;
+	font-family: 'PT Sans', sans-serif;
+	vertical-align:middle;
+}
+form input[type="submit"]
+{
+	width:80px;
+	height:30px;
+	background:#282832;
+	border:3px solid #282832;
+	color:white;
+	font-weight:600;
+	margin:0 0 0 20px;
+	vertical-align:middle;
+}
+form input[type="submit"]:hover
+{
+	background:white;
+	color:#282832;
+	transition: all 0.2s ease-in-out;
+}
+p{
+	font-family: 'PT Sans', sans-serif;
+}
+
