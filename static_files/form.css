@@ -12,6 +12,7 @@ form label
 form input[type="text"]
 {
 	margin:10px 20px 10px 20px;
+	font-family: 'PT Sans', sans-serif;
 }
 form input[type="password"]
 {
@@ -20,6 +21,19 @@ form input[type="password"]
 form input[type="email"]
 {
 	margin:10px 20px 10px 20px;
+	font-family: 'PT Sans', sans-serif;
+}
+form input[type="datetime-local"]
+{
+	margin:10px 20px 10px 20px;
+	font-family: 'PT Sans', sans-serif;
+}
+select
+{
+	margin:10px 20px 10px 20px;
+	min-width:210px;
+	min-height:25px;
+	font-family: 'PT Sans', sans-serif;
 }
 form a
 {
