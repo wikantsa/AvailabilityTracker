@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block title %}
+            Available
+        {% endblock %}
+    </title>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="/static/base.css">
+</head>
+<body>
+    <nav>
+        <a href="{% url 'index' %}" class="nav-logo">Availability</a>
+        <a href="{% url 'index' %}">Home</a>
+        <a href="{% url 'logout' %}" class="nav-logout-link">Log Out</a>
+        <a href="{% url 'index' %}" class="nav-profile-link">Profile</a>
+        <a href="{% url 'new_activity' %}" class="nav-add-link">+Add Activity</a>
+        <a href="{% url 'new_availability' %}" class="nav-add-link">+Add Availability</a>
+    </nav>
+{% block body %}
+{% endblock %}
+</body>
+</html>

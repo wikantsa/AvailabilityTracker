@@ -1,5 +1,6 @@
 AvailabilityTracker/settings.py
 availability/migrations/
+.idea/
 db.sqlite3
 *.pyc
 *.pyo

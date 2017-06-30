@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Login
+{% endblock %}
+
+{% block body %}
+<form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {% include 'form-template.html' %}
+    <input type="submit" id="Submit" value="Submit"/>
+</form>
+<a href="{% url 'register' %}">Need an account?</a>
+<p>{{ form.errors }}</p>
+<p>{{ form.non_field_errors }}</p>
+{% endblock %}
