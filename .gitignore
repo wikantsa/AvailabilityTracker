@@ -1,4 +1,4 @@
-AvailabilityTracker/settings.py
+AvailabilityTracker/settings_secret.py
 availability/migrations/
 .idea/
 db.sqlite3
