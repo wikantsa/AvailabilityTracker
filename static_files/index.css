@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');/*font-family: 'Ubuntu', sans-serif;*/
+body
+{
+    position:absolute;
+    top:0;
+    height:calc(100vh - 60px);
+    width:100%;
+}
+.calendar-container
+{
+    width:calc(100% - 10px);
+    height:100%;
+    font-size:0;
+    margin:5px;
+}
+.calendar-day-label
+{
+    width:calc(100%/7 - 28px);
+    height:calc(10% - 20px);
+    margin:1px;
+    padding:8px 12px 8px 12px;
+    display:inline-block;
+    border-radius:2px;
+    background:#A8B3CD;
+    border: 1px solid #6d80ab;
+    font-size:20px;
+    vertical-align:top;
+    text-align:left;
+    font-family: 'Ubuntu', sans-serif;
+    font-size:16px;
+    color:#595959;
+}
+.calendar-day
+{
+    position:relative;
+    width:calc(100%/7 - 4px);
+    height:calc(90% - 4px);
+    margin:1px;
+    background:white;
+    display:inline-block;
+    border-radius:2px;
+    background:#e4e5e7;
+    border:1px solid #93979f;
+    vertical-align:top;
+    font-size:16px;
+}
+.calendar-availability
+{
+    position:absolute;
+    width:calc(100% - 4px);
+    min-height:40px;
+    height:auto;
+    border:1px solid #93979f;
+    margin:1px;
+    font-size:8px;
+}
+.calendar-hour
+{
+    height:calc(4.167% - 3px);
+    width:calc(100% - 4px);
+    margin:1px;
+    border:1px solid black;
+}

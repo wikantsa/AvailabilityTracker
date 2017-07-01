@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css?family=Mogra|Roboto');
+body
+{
+}
+
+label
+{
+    height:50px;
+    min-width:100px;
+    padding:0 14px 0 0;
+    line-height:50px;
+    display:inline-block;
+    font-family: 'Roboto', sans-serif;
+    vertical-align:top;
+    text-align:right;
+    font-size:16px;
+}
+input[type="datetime-local"]
+{
+    height:22px;
+    width:190px;
+    margin:12px 0 12px 0;
+    display:inline-block;
+    font-family: 'Roboto', sans-serif;
+    vertical-align:top;
+}
+input[type="text"]
+{
+    height:22px;
+    width:190px;
+    margin:12px 0 12px 0;
+    display:inline-block;
+    font-family: 'Roboto', sans-serif;
+    vertical-align:top;
+}
+select
+{
+    height:24px;
+    width:194px;
+    margin:12px 0 12px 0;
+    display:inline-block;
+    font-family: 'Roboto', sans-serif;
+    vertical-align:top;
+}
+input[type="submit"]
+{
+    height:24px;
+    width:80px;
+    font-size:14px;
+    line-height:24px;
+    font-family: 'Roboto', sans-serif;
+    margin:13px 0 13px 228px;
+}
+.field-container
+{
+    display:inline-block;
+}
