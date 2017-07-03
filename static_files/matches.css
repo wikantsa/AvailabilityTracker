@@ -44,3 +44,8 @@
 {
 	min-width:calc(25% - 2px);
 }
+.flex-none
+{
+	min-width:calc(100% - 2px);
+	text-align:center;
+}
