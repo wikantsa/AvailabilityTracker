@@ -1,12 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Availability Matches</title>
-    {% load staticfiles %}
-    <script src="{% static 'js/jquery-3.2.1.js' %}"></script>
-</head>
-<body>
-    <h1>Availability Matches</h1>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}
+    Available - Matches
+{% endblock %}
+
+{% block body %}
+    {% for match in matches %}
+		{{ match }}<br>
+	{% endfor %}
+{% endblock %}

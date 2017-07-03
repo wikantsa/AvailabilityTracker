@@ -14,10 +14,16 @@ import calendar
 
 @login_required
 def index(request):
+
+    offset = 0
+    if request.GET.get('offset') is not None:
+        offset = int(request.GET.get('offset'))
+
     # get Sunday
     today = datetime.date.today()
     days_past = (today.weekday() + 1) % 7
-    sun = today - datetime.timedelta(days=days_past)
+    days_offset = 7 * offset
+    sun = today - datetime.timedelta(days=days_past) + datetime.timedelta(days=days_offset)
 
     # construct week data
     week_data = []
@@ -62,7 +68,7 @@ def index(request):
         lengths = lengths_by_day[i]
         final_availabilities.append(zip(availabilities, ratios, lengths))
 
-    return render(request, 'index.html', {'week_data': week_data, 'periods': final_availabilities})
+    return render(request, 'index.html', {'week_data': week_data, 'periods': final_availabilities, 'offset': offset})
 
 
 class AvailabilityCreate(CreateView):
@@ -155,4 +161,12 @@ def schedule(request):
 
 @login_required
 def matches(request):
-    return render(request, 'matches.html')
+    my_availabilities = Availability.objects.filter(person__user__username=request.user.username)
+    other_availabilities = Availability.objects.exclude(person__user__username=request.user.username)
+    matches = []
+    for my in my_availabilities:
+        for other in other_availabilities:
+            if my.activity.name == other.activity.name:
+                matches.append(my.person.user.username + ' and ' + other.person.user.username + ' - ' + my.activity.name)
+
+    return render(request, 'matches.html', {'matches': matches})

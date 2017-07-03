@@ -37,7 +37,7 @@
     {% endfor %}
 </div>
 <div class="calendar-date-nav">
-	<a href="#">Last Week</a>
-	<a href="#">Next Week</a>
+	<a href="{% url 'index' %}?offset={{ offset|add:'-1' }}">Last Week</a>
+	<a href="{% url 'index' %}?offset={{ offset|add:'1' }}">Next Week</a>
 </div>
 {% endblock %}
