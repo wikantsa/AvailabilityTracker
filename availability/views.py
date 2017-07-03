@@ -167,6 +167,17 @@ def matches(request):
     for my in my_availabilities:
         for other in other_availabilities:
             if my.activity.name == other.activity.name:
-                matches.append(my.person.user.username + ' and ' + other.person.user.username + ' - ' + my.activity.name)
+                my_names = []
+                other_names = []
+                activities = []
+                starts = []
+                ends = []
+                if my.start < other.start < my.end or my.start < other.end < my.end:
+                    my_names.append(my.person.user.username)
+                    other_names.append(other.person.user.username)
+                    activities.append(my.activity.name)
+                    starts.append(max({my.start, other.start}).strftime("%b %d, %Y %H:%M"))
+                    ends.append(max({my.end, other.end}).strftime("%b %d, %Y %H:%M"))
+                    matches.append(zip(my_names, other_names, activities, starts, ends))
 
     return render(request, 'matches.html', {'matches': matches})

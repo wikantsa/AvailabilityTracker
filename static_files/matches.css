@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css?family=PT+Sans');/*font-family: 'PT Sans', sans-serif;*/
+.match-grid
+{
+	font-size:0;
+	margin:10px;
+	padding-top:10px;
+}
+.header-row
+{
+	font-weight:600;
+	text-indent:20px;
+	min-height:50px;
+	line-height:50px;
+	background:#A8B3CD;
+}
+.flex
+{
+	display:inline-flex;
+	font-size:16px;
+	font-family: 'PT Sans', sans-serif;
+	margin:1px;
+	border-radius:2px;
+}
+.flex-item
+{
+	min-height:40px;
+	text-indent:30px;
+	line-height:40px;
+	background:#d9d9d9;
+}
+.flex-other
+{
+	min-width:calc(25% - 2px);
+}
+.flex-activity
+{
+	min-width:calc(25% - 2px);
+}
+.flex-start
+{
+	min-width:calc(25% - 2px);
+}
+.flex-end
+{
+	min-width:calc(25% - 2px);
+}

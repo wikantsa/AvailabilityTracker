@@ -5,7 +5,19 @@
 {% endblock %}
 
 {% block body %}
-    {% for match in matches %}
-		{{ match }}<br>
+<link rel="stylesheet" type="text/css" href="/static/matches.css">
+	<div class="match-grid">
+	<div class="header-row flex flex-other">This Person...</div>
+	<div class="header-row flex flex-activity">Wants To Go...</div>
+	<div class="header-row flex flex-start">Earlier Start Time</div>
+	<div class="header-row flex flex-end">Later End Time</div>
+	{% for match in matches %}
+		{% for me, other, activity, start, end in match %}
+			<div class="flex flex-other flex-item">{{ other }}</div>
+			<div class="flex flex-activity flex-item">{{ activity }}</div>
+			<div class="flex flex-start flex-item">{{ start }}</div>
+			<div class="flex flex-end flex-item">{{ end }} </div>
+		{% endfor %}
 	{% endfor %}
+	</div>
 {% endblock %}
