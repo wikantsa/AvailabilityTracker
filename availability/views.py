@@ -15,17 +15,18 @@ import calendar
 @login_required
 def index(request):
 
+    # Get the week offset from the current week that the person is looking at
     offset = 0
     if request.GET.get('offset') is not None:
         offset = int(request.GET.get('offset'))
 
-    # get Sunday
+    # Get the most recent sunday's full date
     today = datetime.date.today()
     days_past = (today.weekday() + 1) % 7
     days_offset = 7 * offset
     sun = today - datetime.timedelta(days=days_past) + datetime.timedelta(days=days_offset)
 
-    # construct week data
+    # Construct a list of data for each day of the week (day, weekday, month) to be output to the calendar
     week_data = []
     for i in range(0, 7):
         day_data = []
@@ -34,7 +35,7 @@ def index(request):
         day_data.append((sun + datetime.timedelta(days=i)).strftime("%d"))
         week_data.append(day_data)
 
-    # get availabilities
+    # Construct a list of availabilities by day (start and end times, activitites)
     start_datetime = datetime.datetime.combine(sun, datetime.datetime.min.time())
     end_datetime = datetime.datetime.combine(sun + datetime.timedelta(days=6), datetime.datetime.max.time())
     availabilities = Availability.objects.filter(start__range=[start_datetime, end_datetime], person__user__username=request.user.username)
@@ -42,7 +43,8 @@ def index(request):
     for i in range(0, 7):
         availabilities_by_day.append(availabilities.filter(start__day=sun.day + i))
 
-    # get ratios
+    # Construct a list of the proportion of the day that each availability takes up whose structure
+    # mirrors the availability list's structure
     ratios_by_day = []
     for i in range(0, 7):
         ratios = []
@@ -51,7 +53,7 @@ def index(request):
             ratios.append(ratio)
         ratios_by_day.append(ratios)
 
-    # get lengths
+    # Construct a list of the lengths of each availability whose structure mirrors the availability list's structure
     lengths_by_day = []
     for i in range(0, 7):
         lengths = []
@@ -60,7 +62,7 @@ def index(request):
             lengths.append(length)
         lengths_by_day.append(lengths)
 
-    # zip the availabilities, ratios and lengths into tuples
+    # zip the availabilities, ratios and lengths into tuples for use in the template
     final_availabilities = []
     for i in range(0, 7):
         availabilities = availabilities_by_day[i]
@@ -71,6 +73,7 @@ def index(request):
     return render(request, 'index.html', {'week_data': week_data, 'periods': final_availabilities, 'offset': offset})
 
 
+# View for the availability creation form
 class AvailabilityCreate(CreateView):
     template_name = 'availability_form.html'
     model = Availability
@@ -87,6 +90,7 @@ class AvailabilityCreate(CreateView):
         return super(AvailabilityCreate, self).form_invalid(form)
 
 
+# View for the activity creation form
 class ActivityCreate(CreateView):
     template_name = 'activity_form.html'
     model = Activity
@@ -101,6 +105,7 @@ class ActivityCreate(CreateView):
         return super(ActivityCreate, self).form_invalid(form)
 
 
+# View for the account creation form
 class UserFormView(View):
     form_class = UserForm
     template_name = 'registration_form.html'
@@ -129,6 +134,7 @@ class UserFormView(View):
         return render(request, self.template_name, {'form': form})
 
 
+# View for the login form
 class LoginFormView(View):
     form_class = LoginForm
     template_name = 'login_form.html'
@@ -155,14 +161,13 @@ class LoginFormView(View):
 
 
 @login_required
-def schedule(request):
-    return render(request, 'schedule.html')
-
-
-@login_required
 def matches(request):
+    # Query the database for both all availabilities that are mine and all availabilities that are not mine
     my_availabilities = Availability.objects.filter(person__user__username=request.user.username)
     other_availabilities = Availability.objects.exclude(person__user__username=request.user.username)
+
+    # Cycle through the data we just queried and find overlaps between my availabilities and others' availabilities.
+    # Put their data in lists then zip them into tuples to be sent to the template
     matches = []
     for my in my_availabilities:
         for other in other_availabilities:
