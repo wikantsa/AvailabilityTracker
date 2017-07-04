@@ -54,6 +54,12 @@
 	content:"To: ";
 	font-weight:600;
 }
+.col-full-width
+{
+	flex-basis:99%;
+	font-size:16px;
+	text-align:center;
+}
 	
 /*NON-MOBILE STYLES*/
 @media only screen and (min-width:400px)
